@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products</title>
+    <%- include('../../partials/init'); %>
+    <link rel="stylesheet" href="/css/card.css" type="text/css">
+    <link rel="stylesheet" href="/css/products.css" type="text/css">
+    <link rel="stylesheet" href="/css/buttons.css" type="text/css">
+    <link rel="stylesheet" href="/css/products-head.css" type="text/css">
+</head>
+<%- include('../../partials/header'); %>
+<body>
+<div class="products-container page">
+    <div class="container-head">
+        <div class="title">
+            <h1>Products</h1>
+        </div>
+
+        <form action="/products" method="get" class="searchers">
+            <div class="search searcher">
+                <label for="search">Search :</label>
+                <input type="text" name="search" id="search" value="<%= selectedSearch %>">
+            </div>
+            <div class="category searcher">
+                <label for="category">Category</label>
+                <select name="category" id="category">
+                    <option value="">All</option>
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category %>"
+                        <% if (category === selectedCategory) { %>
+                                selected
+                                <% } %>
+                        ><%= category %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <button type="submit" class="button confirm-button">Search</button>
+        </form>
+    </div>
+
+    <div class="products-list">
+        <% products.forEach(function(product){ %>
+
+            <div class="product-card">
+                <div class="title">
+                    <p><%= product.title %></p>
+                </div>
+                <div class="image">
+                    <img src="<%= product.image %>" alt="product image">
+                </div>
+                <div class="description">
+                    <p><%= product.description %></p>
+                </div>
+                <div class="category">
+                    <p>Category : <%= product.category %></p>
+                </div>
+                <div class="rating">
+                    <p>Rate : <%= product.rating.rate %> / 5 ( <%= product.rating.count %> votes )</p>
+                </div>
+                <div class="price">
+                    <p>Price : <%= product.price %> €</p>
+                </div>
+                <div class="details">
+                    <a class="button info-button" href="/products/<%= product.id %>">Show product</a>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+</body>
+</html>

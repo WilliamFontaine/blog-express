@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update <%= product.title %></title>
+    <%- include('../../partials/init'); %>
+    <link rel="stylesheet" href="/css/detail.css" type="text/css">
+    <link rel="stylesheet" href="/css/buttons.css" type="text/css">
+    <link rel="stylesheet" href="/css/edit-product.css" type="text/css">
+</head>
+<%- include('../../partials/header'); %>
+<body>
+<form class="product-detail page"  method="post" action="/products/<%= product.id%>/edit">
+    <div class="input-group title">
+        <label for="title">Title : </label>
+        <input type="text" name="title" id="title" value="<%= product.title %>" required>
+    </div>
+
+    <div class="product">
+        <div class="product-grid">
+            <div class="grid-part">
+                <div class="image">
+                    <img src="<%= product.image %>" alt="product image">
+                </div>
+                <div class="input-group image">
+                    <label for="image">Image : </label>
+                    <input type="text" name="image" id="image" value="<%= product.image %>" required>
+                </div>
+            </div>
+            <div class="grid-part">
+                <div class="input-group description">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" cols="30" rows="10"
+                              required><%= product.description %></textarea>
+                </div>
+                <div class="input-group category">
+                    <label for="category">Category</label>
+                    <input type="text" name="category" id="category" value="<%= product.category %>" required>
+                </div>
+                <div class="rating">
+                    <p class="title">Rate</p>
+                    <p class="rate"><%= product.rating.rate %>/5 with <%= product.rating.count %> votes.</p>
+                </div>
+                <div class="input-group price">
+                    <label for="price">Price (€)</label>
+                    <input type="number" step="0.01" name="price" id="price" value="<%= product.price %>">
+                </div>
+                <div class="buttons">
+                    <a class="button confirm-button" href="/products/<%= product._id %>">Cancel</a>
+                    <button class="button danger-button" type="submit">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

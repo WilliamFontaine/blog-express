@@ -1,0 +1,55 @@
+.new-product {
+    padding-top: 50px;
+    height: 94vh;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+}
+.new-product .title {
+    font-size: 1rem;
+}
+
+form {
+    margin: 0 auto;
+    width: 50%;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 10px;
+    height: fit-content;
+    background-color: #e5e5e5;
+}
+
+.input-group {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.input-group label {
+    width: 20%;
+    margin-bottom: 0.5rem;
+    text-align: right;
+    margin-right: 20px;
+    line-height: 2rem;
+}
+
+.input-group input {
+    width: 80%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group textarea {
+    width: 80%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 50px;
+}

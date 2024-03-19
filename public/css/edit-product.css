@@ -1,0 +1,45 @@
+.title {
+    font-size: 2rem;
+}
+
+img {
+    height: 70vh;
+}
+
+.grid-part:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+textarea, input {
+    width: 80%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input {
+    height: 2rem;
+}
+
+label {
+    display: block;
+    padding: 10px 5px 5px 0;
+    text-align: right;
+}
+
+.grid-part:nth-child(2) label {
+    width: 20%;
+}
+.grid-part:nth-child(2) textarea, .grid-part:nth-child(2) input {
+    width: 80%;
+}

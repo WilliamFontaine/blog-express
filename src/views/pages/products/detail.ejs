@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= product.title %></title>
+    <%- include('../../partials/init'); %>
+    <link rel="stylesheet" href="/css/detail.css" type="text/css">
+    <link rel="stylesheet" href="/css/buttons.css" type="text/css">
+</head>
+<%- include('../../partials/header'); %>
+<body>
+<div class="product-detail page">
+    <div class="title">
+        <h1><%= product.title %></h1>
+    </div>
+
+    <div class="product">
+        <div class="product-grid">
+            <div class="grid-part">
+                <div class="image">
+                    <img src="<%= product.image %>" alt="product image">
+                </div>
+            </div>
+            <div class="grid-part">
+                <div class="description">
+                    <p class="title">Description</p>
+                    <p><%= product.description %></p>
+                </div>
+                <div class="category">
+                    <p class="title">Category</p>
+                    <p><%= product.category %></p>
+                </div>
+                <div class="rating">
+                    <p class="title">Rate</p>
+                    <p class="rate"><%= product.rating.rate %>/5 with <%= product.rating.count %> votes.</p>
+                </div>
+                <div class="price">
+                    <p class="title">Price</p>
+                    <p><%= product.price %> €</p>
+                </div>
+                <% if(user) { %>
+                <div class="buttons">
+                    <a class="button confirm-button" href="/products/<%= product.id %>/edit">Edit product</a>
+                    <a class="button danger-button" href="/products/<%= product.id %>/delete">Delete product</a>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
