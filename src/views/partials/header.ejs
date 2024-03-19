@@ -1,0 +1,23 @@
+<header>
+    <link rel="stylesheet" href="/css/header.css">
+    <nav class="nav-bar">
+        <ul>
+            <li class="nav-item">
+                <a href="/products">Product list</a>
+            </li>
+            <% if (user !== undefined) { %>
+                <li class="nav-item">
+                    <a href="/products/new">Add a product</a>
+                </li>
+            <% } %>
+
+            <li class="nav-item fixed-right">
+                <% if (user === undefined) { %>
+                    <a href="/auth/login">Login</a>
+                <% } else { %>
+                    <a href="/auth/logout">Logout</a>
+                <% } %>
+            </li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <%- include('../../partials/init'); %>
+    <link rel="stylesheet" href="/css/form.css" type="text/css">
+    <link rel="stylesheet" href="/css/buttons.css" type="text/css">
+</head>
+<body>
+<div class="login-container container">
+    <div class="title">
+        <h1>Login</h1>
+    </div>
+    <div class="login-form form">
+
+        <p class="title">Login</p>
+
+        <div class="error">
+            <% if (error) { %>
+                <p><%= error %></p>
+            <% } %>
+        </div>
+
+        <form action="/auth/login" method="post">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="buttons">
+                <button class="button confirm-button" type="submit">Login</button>
+                <a class="button info-button" href="/auth/register">Register</a>
+                <a class="button secondary-button" href="/products">Product list</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
